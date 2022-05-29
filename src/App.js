@@ -19,7 +19,7 @@ function App() {
       <Grid container rowSpacing={1} columnSpacing={3}>
         <Grid item xs={12}>
           <h1>Naluri Space Project</h1>
-          <h1>Understanding The Sun Circumference</h1>
+          <h2>Understanding The Sun Circumference</h2>
         </Grid>
       </Grid>
 
