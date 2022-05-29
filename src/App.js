@@ -18,7 +18,7 @@ function App() {
     <div className="App">
       <Grid container rowSpacing={1} columnSpacing={3}>
         <Grid item xs={12}>
-          <header>Naluri Space Project</header>
+          <h1>Naluri Space Project</h1>
           <h1>Understanding The Sun Circumference</h1>
         </Grid>
       </Grid>
@@ -47,6 +47,7 @@ function App() {
             className="piValue"
             id="filled-textarea"
             label="Value of Pi"
+            defaultValue={3}
             value={piValue}
             multiline
             variant="filled"
@@ -64,6 +65,7 @@ function App() {
             className="sunCircumference"
             id="filled-textarea"
             label="Sun Circumference"
+            defaultValue={'4.1781 million km'}
             value={sunCircumference}
             multiline
             variant="filled"

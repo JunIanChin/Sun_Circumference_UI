@@ -15,7 +15,15 @@ function ResetPiButton({ updateDisplay }) {
   }
   return (
     <Button
-      sx={{ width: '100%' }}
+      sx={{
+        width: '100%',
+        textTransform: 'none',
+        backgroundColor: '#CC0019',
+        fontWeight: 'bold',
+        ':hover': {
+          backgroundColor: '#1d1d1d',
+        },
+      }}
       className="resetPiPrecision"
       variant="contained"
       onClick={resetPi}

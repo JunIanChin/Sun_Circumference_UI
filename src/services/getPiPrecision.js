@@ -1,7 +1,7 @@
 import { apiService } from './apiService'
 import { ENDPOINTS } from '../utils/constants'
 
-export function getPiPrecision(url) {
+export function getNextPiPrecision() {
   return new Promise(async (resolve, reject) => {
     try {
       const res = await apiService().get(ENDPOINTS.GET_PI_PRECISION)

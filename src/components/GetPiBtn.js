@@ -1,10 +1,10 @@
 import { Button } from '@mui/material'
 import React from 'react'
-import { getPiPrecision } from '../services/getPiPrecision'
+import { getNextPiPrecision } from '../services/getPiPrecision'
 
-function GetPiButton({ updateDisplay }) {
+function GetNextPiButton({ updateDisplay }) {
   function getPi() {
-    getPiPrecision('/get_next_pi')
+    getNextPiPrecision('/get_next_pi')
       .then((data) => {
         updateDisplay(data.pi, `${data.circumference} million km`)
       })
@@ -12,7 +12,15 @@ function GetPiButton({ updateDisplay }) {
   }
   return (
     <Button
-      sx={{ width: '100%' }}
+      sx={{
+        width: '100%',
+        textTransform: 'none',
+        backgroundColor: '#228B22',
+        fontWeight: 'bold',
+        ':hover': {
+          backgroundColor: '#1d1d1d',
+        },
+      }}
       className="getPiPrecision"
       variant="contained"
       onClick={getPi}
@@ -22,4 +30,4 @@ function GetPiButton({ updateDisplay }) {
   )
 }
 
-export default GetPiButton
+export default GetNextPiButton
