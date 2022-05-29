@@ -22,15 +22,6 @@ h1 {
   color: white;
 }
 
-.resultComp {
-  display: inline-block;
-}
-
-.showResult {
-  background-color: white;
-}
-
-
 /* @media (prefers-reduced-motion: no-preference) {
   .Sun-logo {
     animation: Sun-logo-spin infinite 20s linear;
