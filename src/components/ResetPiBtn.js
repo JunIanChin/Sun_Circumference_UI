@@ -4,7 +4,7 @@ import { resetPiPrecision } from '../services/resetPiPrecision'
 
 function ResetPiButton({ updateDisplay }) {
   function resetPi() {
-    resetPiPrecision('/reset_pi')
+    resetPiPrecision()
       .then(() => {
         updateDisplay(3, '4.1781 million km')
       })

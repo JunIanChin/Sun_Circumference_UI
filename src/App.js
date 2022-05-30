@@ -3,16 +3,34 @@ import TextField from '@mui/material/TextField'
 import Grid from '@mui/material/Grid'
 import GetPiButton from './components/GetPiBtn'
 import ResetPiButton from './components/ResetPiBtn'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { getNextPiPrecision } from './services/getPiPrecision'
 
 function App() {
   const [piValue, setPiValue] = useState(0)
   const [sunCircumference, setSunCircumference] = useState(0)
+  const [isLoading, setIsLoading] = useState(true)
 
   const updateDisplay = (updatedPiValue, updatedSunCircumference) => {
     setPiValue(updatedPiValue)
     setSunCircumference(updatedSunCircumference)
   }
+
+  useEffect(() => {
+    function initialDisplay() {
+      if (isLoading) {
+        getNextPiPrecision()
+          .then((res) => {
+            setIsLoading(false)
+            updateDisplay(res.pi, res.circumference)
+          })
+          .catch((err) => {
+            console.log(err)
+          })
+      }
+    }
+    initialDisplay()
+  }, [])
 
   return (
     <div className="App">
@@ -47,7 +65,7 @@ function App() {
             className="piValue"
             id="filled-textarea"
             label="Value of Pi"
-            defaultValue={3}
+            defaultValue={isLoading ? 'Loading' : piValue}
             value={piValue}
             multiline
             variant="filled"
@@ -65,7 +83,7 @@ function App() {
             className="sunCircumference"
             id="filled-textarea"
             label="Sun Circumference"
-            defaultValue={'4.1781 million km'}
+            defaultValue={isLoading ? 'Loading' : sunCircumference}
             value={sunCircumference}
             multiline
             variant="filled"

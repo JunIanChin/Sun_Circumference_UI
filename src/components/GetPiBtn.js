@@ -4,7 +4,7 @@ import { getNextPiPrecision } from '../services/getPiPrecision'
 
 function GetNextPiButton({ updateDisplay }) {
   function getPi() {
-    getNextPiPrecision('/get_next_pi')
+    getNextPiPrecision()
       .then((data) => {
         updateDisplay(data.pi, `${data.circumference} million km`)
       })
